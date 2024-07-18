@@ -53,15 +53,15 @@ At this stage `Renv` has been activated. For further information visit the [Renv
 
 If the above commands do not appear to work or error message appear, read more about troubleshooting renv in our [R Documentation](https://datavis.nisra.gov.uk/techlab/drpvze/r.html#renv_troubleshooting) 
 
-#### 3. Load Your Data
+### 3. Load Your Data
 
 Load your data using the 'Data Prep.R' file. The file provides options for loading different types of data
 
-#### 4. Select Columns 
+### 4. Select Columns 
 
 Choose which columns you want to anonymise or row swap by entering them in the brackets of the 'select' statement 
 
-##### 5. Compare the datasets using visualisations
+#### 5. Compare the datasets using visualisations
 
 Run the visualisation code to verify that the original data and synthetic data have the same underlying structures
 
