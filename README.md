@@ -35,7 +35,7 @@ In order to work with the Synthetic Data Generator the project folder must first
 
 Upon opening the `Generating-Synthetic-Data.Rproj` file for the first time you may see the following `Renv` warning appear in the console of R studio:
 
-![Renv warning](data/images/renv_error.png)
+![image](https://github.com/user-attachments/assets/e9ebe115-f614-426a-bbf7-b8a6ef15987e)
 
 `Renv` is used to lock the current version of the packages within the RAP Skeleton so that any future package updates do not cause any issues with running code. `Renv` only needs to be activated once at the start of each Rap Skeleton project and it will attempt to automatically activate - the above warning is a sign that this automatic activation has failed and must be activated manually. Once `Renv` has been activated manually the above warning will disappear.
 
