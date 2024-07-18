@@ -16,9 +16,20 @@ This technique randomises any columns that contain sensitive data, such as names
 
 Row swapping randomises the values in the selected columns. 
 
-Steps
+![image](https://github.com/user-attachments/assets/88a446a3-9485-4948-9273-d4411144c74f)
+
+# Steps
 
 1. Clone the github repository
+
+## Downloading the Synthetic Data Generator
+In order to work with the Synthetic Data Generator the project folder must first be downloaded onto your local computer. Follow these steps to complete this process: 
+
+- Download the RAP Skeleton as a ZIP file by clicking on the ‘Code (zip)’ button and clicking 'Download Zip.' 
+
+- Open your ‘Downloads’ folder using Windows Explorer and extract the Synthetic Data Generator contents by right-clicking on the ZIP file and selecting ‘Extract All’.  
+
+- The Synthetic Data Generator will be contained within a folder with a name such as `Generating-Synthetic-Data`. Choose an appropriate location to save this folder e.g. your desktop. 
 
 2. Activate renv
 
@@ -39,6 +50,10 @@ To manually activate `Renv`, run the following lines of code one at a time in th
 If you did not see the above warning the first time you opened the `rap-skeleton.Rproj` file, it means that `Renv` was able to activate automatically. In this case, there is no need to run `source("renv/activate.R")`. Instead just run `renv::restore()` and press `y` to accept.   
 
 At this stage `Renv` has been activated. For further information visit the [Renv website.](https://rstudio.github.io/renv/index.html)
+
+### Help & Troubleshooting
+
+If the above commands do not appear to work or error message appear, read more about troubleshooting renv in our [R Documentation](https://datavis.nisra.gov.uk/techlab/drpvze/r.html#renv_troubleshooting) 
 
 3. Load your data using the 'Data Prep.R' file. The file provides options for loading different types of data
 
