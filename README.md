@@ -61,7 +61,7 @@ Load your data using the 'Data Prep.R' file. The file provides options for loadi
 
 Choose which columns you want to anonymise or row swap by entering them in the brackets of the 'select' statement 
 
-#### 5. Compare the datasets using visualisations
+### 5. Compare the datasets using visualisations
 
 Run the visualisation code to verify that the original data and synthetic data have the same underlying structures
 
