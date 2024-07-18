@@ -10,7 +10,7 @@ The objective of synthesising data is to generate a data set which resembles the
 
 This technique randomises any columns that contain sensitive data, such as names or personal identification numbers. It outputs a random string of characters that is the same datatype as the original column. 
 
-![image](https://github.com/user-attachments/assets/d1f815a2-5643-46cb-942d-6419eb408dad)
+![image](https://github.com/user-attachments/assets/b98785db-f2f2-4143-92ef-e5ab2fa8b7fe)
 
 ### Row Swapping
 
