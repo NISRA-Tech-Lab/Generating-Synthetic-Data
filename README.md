@@ -1,4 +1,4 @@
-# Synthetic Data
+# Generating Synthetic Data
 
 ## What is the project?
 
@@ -51,7 +51,7 @@ If you did not see the above warning the first time you opened the `rap-skeleton
 
 At this stage `Renv` has been activated. For further information visit the [Renv website.](https://rstudio.github.io/renv/index.html)
 
-### Help & Troubleshooting
+## Help & Troubleshooting
 
 If the above commands do not appear to work or error message appear, read more about troubleshooting renv in our [R Documentation](https://datavis.nisra.gov.uk/techlab/drpvze/r.html#renv_troubleshooting) 
 
