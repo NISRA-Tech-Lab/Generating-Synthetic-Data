@@ -20,9 +20,7 @@ Row swapping randomises the values in the selected columns.
 
 # Steps
 
-1. Clone the github repository
-
-## Downloading the Synthetic Data Generator
+### 1. Download the Synthetic Data Generator
 In order to work with the Synthetic Data Generator the project folder must first be downloaded onto your local computer. Follow these steps to complete this process: 
 
 - Download the RAP Skeleton as a ZIP file by clicking on the ‘Code (zip)’ button and clicking 'Download Zip.' 
@@ -31,7 +29,7 @@ In order to work with the Synthetic Data Generator the project folder must first
 
 - The Synthetic Data Generator will be contained within a folder with a name such as `Generating-Synthetic-Data`. Choose an appropriate location to save this folder e.g. your desktop. 
 
-2. Activate renv
+### 2. Activate renv
 
 Upon opening the `Generating-Synthetic-Data.Rproj` file for the first time you may see the following `Renv` warning appear in the console of R studio:
 
@@ -51,15 +49,21 @@ If you did not see the above warning the first time you opened the `rap-skeleton
 
 At this stage `Renv` has been activated. For further information visit the [Renv website.](https://rstudio.github.io/renv/index.html)
 
-## Help & Troubleshooting
+#### Help & Troubleshooting
 
 If the above commands do not appear to work or error message appear, read more about troubleshooting renv in our [R Documentation](https://datavis.nisra.gov.uk/techlab/drpvze/r.html#renv_troubleshooting) 
 
-3. Load your data using the 'Data Prep.R' file. The file provides options for loading different types of data
+#### 3. Load Your Data
 
-4. Choose which columns you want to anonymise or row swap by entering them in the brackets of the 'select' statement 
+Load your data using the 'Data Prep.R' file. The file provides options for loading different types of data
 
-5. Run the visualisation code to verify that the original data and synthetic data have the same underlying structures
+#### 4. Select Columns 
+
+Choose which columns you want to anonymise or row swap by entering them in the brackets of the 'select' statement 
+
+##### 5. Compare the datasets using visualisations
+
+Run the visualisation code to verify that the original data and synthetic data have the same underlying structures
 
    
 
