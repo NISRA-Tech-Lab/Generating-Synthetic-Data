@@ -1,10 +1,17 @@
 # 1. Anonymising sensitive columns (such as unique identifiers or names)
 df <- anonymisation_data 
 
+# predicate function
+is_01_col <- function(x) {
+  all(unique(x) %in% c(0, 1, NA))
+}
+
+df <- df %>% 
+  mutate(across(where(is.factor), as.character))
+
 # Synthetic data
 # Challenge in retaining statistical properties in the original data
 a <- 0:9
-
 letters_and_numbers <- list(Letters_and_Numbers = c(LETTERS, 0:9))
 b <- letters_and_numbers$Letters_and_Numbers
 
@@ -12,32 +19,21 @@ myFun <- function(y) {
   do.call(paste0, replicate(y, sample(b, 1, TRUE), FALSE))
 }
 
-number_chars <- nchar(df$Postcode)
-number_rows <- nrow(df)
-
-data_type <- print(typeof(df$Phone))
-anonymised_postcode <- print(sapply(number_chars, myFun))
-
 mynumbFun <- function(y) {
   c <- do.call(paste0, replicate(y, sample(a, 1, TRUE), FALSE))
   as.double(c)
 }
 
-number_chars <- nchar(df$Phone)
-number_rows <- nrow(df)
-
-anonymised_phone <- print(sapply(number_chars, mynumbFun))
-
 df$row_number <- seq.int(nrow(df))
 
-synthetic_df <- data.frame(matrix(NA, nrow = 4, ncol = 0))
+synthetic_df <- data.frame(matrix(NA, nrow = nrow(df), ncol = 0))
 
 for (x in 1:(ncol(df)- 1)) {
   
   synthetic_data <- subset(df, select = c(x))
   
-  data_type <- print(typeof(synthetic_data[,1]))
-  
+  data_type <- print(unique(sapply(synthetic_data[,1], class)))
+
   if (data_type == "character") {
     
     number_char <- nchar(synthetic_data[,1])
