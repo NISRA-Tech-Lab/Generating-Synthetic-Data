@@ -55,11 +55,11 @@ If the above commands do not appear to work or error message appear, read more a
 
 ### 3. Load Your Data
 
-Load your data using the 'Data Prep.R' file. The file provides options for loading different types of data
+Load your data using the 'Data Prep.R' file. The file provides options for loading different types of data into a dataframe called 'your_date'. 
 
 ### 4. Select Columns 
 
-Choose which columns you want to anonymise or row swap by entering them in the brackets of the 'select' statement 
+Choose which columns you want to anonymise or row swap by entering them in the brackets of the 'select' statement.
 
 ### 5. Compare the datasets using visualisations
 
