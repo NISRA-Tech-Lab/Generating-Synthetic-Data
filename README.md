@@ -1,7 +1,7 @@
 # Generating Synthetic Data
 
 ## What is the project?
-
+ 
 Synthetic data is artificially generated data that is used to match sensitive data. 
 
 The objective of synthesising data is to generate a data set which resembles the original dataset, with the same row/column count, data types and number of categories as the original dataset. 
