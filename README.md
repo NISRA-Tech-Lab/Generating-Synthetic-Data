@@ -55,7 +55,7 @@ If the above commands do not appear to work or error message appear, read more a
 
 ### 3. Load Your Data
 
-Load your data using the 'Data Prep.R' file. The file provides options for loading different types of data into a dataframe called 'your_date'. 
+Load your data using the 'Data Prep.R' file. The file provides options for loading different types of data into a dataframe called 'your_data'. 
 
 ### 4. Select Columns 
 
