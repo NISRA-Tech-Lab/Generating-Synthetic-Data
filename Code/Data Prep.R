@@ -12,7 +12,7 @@
 #                         sheet = "enter sheet name here")
 
 ## Read in SPSS (.sav) files
-# dfexample <- read.spss("enter file name here",
+# dfexample <- read.spss("T:/Projects/37 - HRCS Paybill/NICS TechLab Database - June 23/Data/FINAL Non-Ind TechLab Data - Mod DB June 23.sav",
 #                          sheet = "Enter sheet name",
 #                          to.data.frame = TRUE)
 
@@ -20,11 +20,11 @@
 # Set up the connection to the SQL Server database
 # con <<- dbConnect(odbc(),
 #                   Driver = "SQL Server",
-#                   Server = "Enter your server name",
-#                   Database = "Enter the database name",
+#                   Server = "PR-AL-SQL03\\NISRA16",
+#                   Database = "CSU_B5Wages",
 #                   Trusted_Connection = "True")
 #
 # Read SQL table
 # dfexample <- dbGetQuery(con, 'select *
-#                              from dbo.table_name;')
+#                              from "dbo"."lkpInterviewer"')
 
