@@ -1,18 +1,50 @@
-final_synthetic_data <- your_data 
-
 # 1. Anonymising sensitive columns (such as unique identifiers or names)
 if( exists("anonymisation_data") ){
+
+  # Synthetic data
+  a <- 0:9
+  letters_and_numbers <- list(Letters_and_Numbers = c(LETTERS, 0:9))
+  b <- letters_and_numbers$Letters_and_Numbers
   
+  character_df <- data.frame(row_id = c(1:nrow(anonymisation_data)))
+  
+  for (x in 1:(ncol(anonymisation_data))) {
+    
+    if(is.character(anonymisation_data[,x])){
+      character_data <- anonymisation_data %>%
+        select(x)
+      avg_col <- nchar(character_data[,1])
+      avg_col <- mean(avg_col, na.rm = TRUE)
+      avg_col <- strtrim(letters_and_numbers, avg_col)
+      character_data <- character_data %>%
+        replace(is.na(.), avg_col)
+      character_df <- cbind(character_df, character_data)
+    }
+  }
+  
+  numeric_df <- data.frame(row_id = c(1:nrow(anonymisation_data)))
+  
+  for (x in 1:(ncol(anonymisation_data))) {
+    
+    if(is.numeric(anonymisation_data[,x])){
+      numeric_data <- anonymisation_data %>%
+        select(x)
+      avg_col <- round_half_up(mean(numeric_data[,1], na.rm = TRUE))
+      numeric_data <- numeric_data %>%
+        replace(is.na(.), avg_col)
+      numeric_df <- cbind(numeric_df, numeric_data)
+    }
+  }
+    
+    anonymisation_data <- cbind(numeric_df, character_df)
+    
+    anonymisation_data <- anonymisation_data %>%
+      select(-row_id)
+    
     df <- anonymisation_data 
     
     df <- df %>% 
       mutate(across(where(is.factor), as.character))
-    
-    # Synthetic data
-    # Challenge in retaining statistical properties in the original data
-    a <- 0:9
-    letters_and_numbers <- list(Letters_and_Numbers = c(LETTERS, 0:9))
-    b <- letters_and_numbers$Letters_and_Numbers
     
     myFun <- function(y) {
       do.call(paste0, replicate(y, sample(b, 1, TRUE), FALSE))
@@ -22,7 +54,7 @@ if( exists("anonymisation_data") ){
       c <- do.call(paste0, replicate(y, sample(a, 1, TRUE), FALSE))
       as.double(c)
     }
-    
+ 
     df$row_number <- seq.int(nrow(df))
     
     synthetic_df <- data.frame(matrix(NA, nrow = nrow(df), ncol = 0))
@@ -32,7 +64,7 @@ if( exists("anonymisation_data") ){
       synthetic_data <- subset(df, select = c(x))
       
       data_type <- print(unique(sapply(synthetic_data[,1], class)))
-    
+
       if (data_type == "character") {
         
         number_char <- nchar(synthetic_data[,1])
@@ -41,15 +73,21 @@ if( exists("anonymisation_data") ){
         anonymised_char <- as.data.frame(anonymised_char)
         synthetic_df[x] <- anonymised_char
     
-      } else if (data_type == "double") {
+      } else if (data_type == "numeric") {
     
+        numeric_data <- your_data %>%
+          select(x)
+        avg_col <- mean(numeric_data[,1], na.rm = TRUE)
+        numeric_data <- numeric_data %>%
+          replace(is.na(.), avg_col)
+        numeric_df <- cbind(numeric_df, numeric_data)
         number_chars <- nchar(synthetic_data[,1])
         number_rows <- nrow(synthetic_data)
         anonymised_postcode <- print(sapply(number_chars, mynumbFun))
         anonymised_postcode <- as.data.frame(anonymised_postcode)
         synthetic_df[x] <- anonymised_postcode
         
-      } else {
+        } else {
         print("Not a number or character")
       }
       
@@ -59,39 +97,47 @@ if( exists("anonymisation_data") ){
     
     similar_columns1 <- colnames(synthetic_df)
     
-    final_synthetic_data <- final_synthetic_data %>%
+    final_anonymised_data <- synthetic_df %>%
       select(-similar_columns1)
-    
-    final_synthetic_data <- cbind(final_synthetic_data, synthetic_df)
 }
 
 # Row Swapping
 if( exists("swapped_data") ){
-  
-  number_cols <- ncol(swapped_data)
-  list_number_cols <- 1:number_cols
-  number_rows <- nrow(swapped_data)
-  syn_df <- data.frame(matrix(ncol = 0, nrow = number_rows))
-  
-  for(i in list_number_cols) {
-    nam <- paste("swapped_data", i, sep = "_")
-    assign(nam, data.frame(table(swapped_data[,i])))
-    
-    nam2 <- paste("col", i, sep = "")
-    assign(nam2, as.character(rep(get(nam)[,1],
-                                  times = get(nam)[,2])))
-    syn_df <- syn_df %>% add_column(placeholder_name = sample(get(nam2)))  
-    col.name <- colnames(swapped_data[i])
-    names(syn_df)[i] <- col.name
-  }
-  
-  similar_columns2 <- colnames(syn_df)
 
-  final_synthetic_data <- final_synthetic_data %>%
-    select(-similar_columns2)
-  
-  final_synthetic_data <- cbind(final_synthetic_data, syn_df)
+  final_swapped_synthetic_data <- as.data.frame(lapply(swapped_data, sample))
 }
+
+# Create final synthetic dataframe
+synthetic_data_output <- your_data
+synthetic_data_cols <- colnames(synthetic_data_output)
+
+if( exists("swapped_data") ){
+  swapped_names <- colnames(final_swapped_synthetic_data) 
+  synthetic_data_output <- synthetic_data_output %>%
+    select(-swapped_names)
+  synthetic_data_output <- cbind(synthetic_data_output, 
+                                        final_swapped_synthetic_data)
+  synthetic_data_output <- synthetic_data_output %>%
+    select(synthetic_data_cols)
+}
+
+if( exists("anonymisation_data") ){
+  anonymised_names <- colnames(anonymisation_data) 
+  synthetic_data_output <- synthetic_data_output %>%
+    select(-anonymised_names)
+  synthetic_data_output <- cbind(synthetic_data_output, 
+                                 anonymisation_data)
+  synthetic_data_output <- synthetic_data_output %>%
+    select(synthetic_data_cols)
+}
+
+rm("anonymisation_data", "anonymised_char", "anonymised_postcode", "character_data",
+"character_df", "df", "final_anonymised_data", "final_swapped_synthetic_data", 
+"final_synthetic_data", "letters_and_numbers", "numeric_data", "numeric_df", 
+"original_data", "swapped_data", "synthetic_data", "synthetic_df")
+
+synthetic_data <- synthetic_data_output
+rm("synthetic_data_output")
 
 # Colors for visuals 
 bar_plot_colors <- c("#3878c5", "#00205b", "#68a41e", "#732777", "#ce70d2")

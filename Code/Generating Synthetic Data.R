@@ -1,27 +1,28 @@
+# Load config file
+library(here)
 source(paste0(here(), "/Code/config.R"))
+source(paste0(here(), "/Code/Data Prep.R"))
 
-# Load data 
-head(iris)
-your_data <- iris
+# Unhash the next two lines if you wish to use sample data 
+# head(iris)
+# your_data <- iris
 
-# Anonymisingiris# Anonymising Unique Identifiers 
+# Anonymising Unique Identifiers 
 anonymisation_data <- your_data %>%
-  select(Species)
+  select(FirstName)
 
-# Row Swapping 
-swapped_data <- your_data
-swapped_data <- swapped_data %>%
-  select(Sepal.Width)
+# Row Swapping
+swapped_data <- your_data %>%
+  select(-FirstName)
 
 # Code to produce synthetic data. The output is the dataframe 'synthetic_df' 
-source(paste0(here(), "/Code/Functions/Functions.R"))
+source(paste0(here(), "/Code/Procedures/Procedures.R"))
 
 # Visualise the original and synthetic datasets
-ggplot(data=syn_df, aes(x=dose, y=len)) +
-  geom_bar(stat="identity")
-p
-original_data_plot <- barplot(prop.table(table(syn_df$Marital_Status)), 
-                              col = bar_plot_colors)
-synthetic_data_plot <- barplot(prop.table(table(df$Marital_Status)), 
-                               col = bar_plot_colors)
-grid.arrange(grobTree(original_data_plot), grobTree(synthetic_data_plot), top="Main Title", ncol=2)
+# ggplot(data=syn_df, aes(x=dose, y=len)) +
+#   geom_bar(stat="identity")
+# original_data_plot <- barplot(prop.table(table(syn_df$Marital_Status)), 
+#                               col = bar_plot_colors)
+# synthetic_data_plot <- barplot(prop.table(table(df$Marital_Status)), 
+#                                col = bar_plot_colors)
+# grid.arrange(grobTree(original_data_plot), grobTree(synthetic_data_plot), top="Main Title", ncol=2)
