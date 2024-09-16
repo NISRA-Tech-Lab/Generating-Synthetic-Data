@@ -131,10 +131,10 @@ if( exists("anonymisation_data") ){
     select(synthetic_data_cols)
 }
 
-rm("anonymisation_data", "anonymised_char", "anonymised_postcode", "character_data",
-"character_df", "df", "final_anonymised_data", "final_swapped_synthetic_data", 
-"final_synthetic_data", "letters_and_numbers", "numeric_data", "numeric_df", 
-"original_data", "swapped_data", "synthetic_data", "synthetic_df")
+rm("anonymisation_data", "anonymised_char", "character_data",
+   "character_df", "df", "final_anonymised_data", "final_swapped_synthetic_data", 
+   "letters_and_numbers", "numeric_df", 
+   "swapped_data", "synthetic_data", "synthetic_df")
 
 synthetic_data <- synthetic_data_output
 rm("synthetic_data_output")
