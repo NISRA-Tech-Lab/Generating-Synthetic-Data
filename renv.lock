@@ -9,6 +9,13 @@
     ]
   },
   "Packages": {
+    "BH": {
+      "Package": "BH",
+      "Version": "1.84.0-0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "a8235afbcd6316e6e91433ea47661013"
+    },
     "DBI": {
       "Package": "DBI",
       "Version": "1.2.3",
@@ -464,6 +471,19 @@
       ],
       "Hash": "1a0a9a3d5083d0d573c4214576f1e690"
     },
+    "foreign": {
+      "Package": "foreign",
+      "Version": "0.8-86",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "methods",
+        "stats",
+        "utils"
+      ],
+      "Hash": "550170303dbb19d07b2bcc288068e7dc"
+    },
     "fs": {
       "Package": "fs",
       "Version": "1.6.4",
@@ -734,6 +754,28 @@
         "utils"
       ],
       "Hash": "0080607b4a1a7b28979aecef976d8bc2"
+    },
+    "janitor": {
+      "Package": "janitor",
+      "Version": "2.2.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "dplyr",
+        "hms",
+        "lifecycle",
+        "lubridate",
+        "magrittr",
+        "purrr",
+        "rlang",
+        "snakecase",
+        "stringi",
+        "stringr",
+        "tidyr",
+        "tidyselect"
+      ],
+      "Hash": "5baae149f1082f466df9d1442ba7aa65"
     },
     "jquerylib": {
       "Package": "jquerylib",
@@ -1077,6 +1119,22 @@
       ],
       "Hash": "9de96463d2117f6ac49980577939dfb3"
     },
+    "readspss": {
+      "Package": "readspss",
+      "Version": "0.17.1",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "JanMarvin",
+      "RemoteRepo": "readspss",
+      "RemoteRef": "main",
+      "RemoteSha": "3ba9cc27aba964df7eadbcb51419d0cf307b2396",
+      "Requirements": [
+        "BH",
+        "Rcpp"
+      ],
+      "Hash": "d0b818966e147739df9218e3d78adf71"
+    },
     "readxl": {
       "Package": "readxl",
       "Version": "1.4.3",
@@ -1257,6 +1315,18 @@
         "stringr"
       ],
       "Hash": "3838071b66e0c566d55cc26bd6e27bf4"
+    },
+    "snakecase": {
+      "Package": "snakecase",
+      "Version": "0.11.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "stringi",
+        "stringr"
+      ],
+      "Hash": "58767e44739b76965332e8a4fe3f91f1"
     },
     "stringi": {
       "Package": "stringi",

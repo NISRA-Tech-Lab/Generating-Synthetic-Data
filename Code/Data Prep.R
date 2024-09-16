@@ -23,13 +23,13 @@ source(paste0(here(), "/Code/config.R"))
 
 ## SQL Code
 # Set up the connection to the SQL Server database
-con <- dbConnect(odbc(),
-                  Driver = "SQL Server",
-                  Server = "NISRA16-List",
-                  Database = "CSU_B5Wages",
-                  Trusted_Connection = "True")
-#
+# con <- dbConnect(odbc(),
+#                   Driver = "SQL Server",
+#                   Server = "NISRA16-List",
+#                   Database = "Database-Name",
+#                   Trusted_Connection = "True")
+
 # Read SQL table
-your_data <- dbGetQuery(con, 'select *  FROM [CSU_B5Wages].[dbo].[lkpInterviewer];')
+# your_data <- dbGetQuery(con, 'select *  FROM [schema].[table_name];')
 
 
