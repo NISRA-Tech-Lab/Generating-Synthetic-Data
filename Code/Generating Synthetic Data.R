@@ -9,16 +9,17 @@ source(paste0(here(), "/Code/Data Prep.R"))
 
 # Anonymising Unique Identifiers 
 anonymisation_data <- your_data %>%
-  select(FirstName)
+  select(IntNo, PayLevel, FirstName, Title, Surname)
 
 # Row Swapping
 swapped_data <- your_data %>%
-  select(-FirstName)
+  select(-IntNo, -PayLevel)
 
 # Code to produce synthetic data. The output is the dataframe 'synthetic_df' 
 source(paste0(here(), "/Code/Procedures/Procedures.R"))
 
 # Visualise the original and synthetic datasets
+summary(your_data)
 # ggplot(data=syn_df, aes(x=dose, y=len)) +
 #   geom_bar(stat="identity")
 # original_data_plot <- barplot(prop.table(table(syn_df$Marital_Status)), 

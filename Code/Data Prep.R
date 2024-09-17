@@ -25,7 +25,7 @@ source(paste0(here(), "/Code/config.R"))
 # Set up the connection to the SQL Server database
 # con <- dbConnect(odbc(),
 #                   Driver = "SQL Server",
-#                   Server = "NISRA16-List",
+#                   Server = "Server Name",
 #                   Database = "Database-Name",
 #                   Trusted_Connection = "True")
 
