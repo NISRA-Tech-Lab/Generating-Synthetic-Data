@@ -7,9 +7,15 @@ source(paste0(here(), "/Code/Data Prep.R"))
 # head(iris)
 # your_data <- iris
 
+data <- data.frame(Name = c("John Mannion", "John Mannion", "John Mannion",
+                            "Mary Mannion", "Niall Mannion"),
+                   DOB = c("01/01/1960", "01/01/1960", "02/01/1960", 
+                           "01/01/1960", "07/06/1991"))
+your_data <- unique(data)
+
 # Anonymising Unique Identifiers 
 anonymisation_data <- your_data %>%
-  select(IntNo, PayLevel, FirstName, Title, Surname)
+  select(Name, DOB)
 
 # Row Swapping
 swapped_data <- your_data %>%
@@ -18,8 +24,15 @@ swapped_data <- your_data %>%
 # Code to produce synthetic data. The output is the dataframe 'synthetic_df' 
 source(paste0(here(), "/Code/Procedures/Procedures.R"))
 
+synthetic_data_output <- synthetic_data_output %>%
+  rename(Syn_Name = Name, Syn_DOB = DOB)
+syn_data <- cbind(your_data, synthetic_data_output)
+data_output <- left_join(data, syn_data, by = c("Name" = "Name", "DOB" = "DOB"))
+
 # Visualise the original and synthetic datasets
 summary(your_data)
+
+
 # ggplot(data=syn_df, aes(x=dose, y=len)) +
 #   geom_bar(stat="identity")
 # original_data_plot <- barplot(prop.table(table(syn_df$Marital_Status)), 
