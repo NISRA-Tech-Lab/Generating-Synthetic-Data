@@ -31,10 +31,3 @@ source(paste0(here(), "/Code/Procedures/Procedures.R"))
 summary(your_data)
 summary(synthetic_data_output)
 
-# ggplot(data=syn_df, aes(x=dose, y=len)) +
-#   geom_bar(stat="identity")
-# original_data_plot <- barplot(prop.table(table(syn_df$Marital_Status)), 
-#                               col = bar_plot_colors)
-# synthetic_data_plot <- barplot(prop.table(table(df$Marital_Status)), 
-#                                col = bar_plot_colors)
-# grid.arrange(grobTree(original_data_plot), grobTree(synthetic_data_plot), top="Main Title", ncol=2)
