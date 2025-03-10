@@ -111,6 +111,9 @@ if( exists("synthetic_df") ){
     select(synthetic_data_cols)
 }
 
+rm(synthetic_data)
+rm(synthetic_df)
+
 # rm("anonymisation_data", "anonymised_char", "character_data",
 #    "character_df", "df", "final_anonymised_data", "final_swapped_synthetic_data", 
 #    "letters_and_numbers", "numeric_df", 

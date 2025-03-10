@@ -1119,22 +1119,6 @@
       ],
       "Hash": "9de96463d2117f6ac49980577939dfb3"
     },
-    "readspss": {
-      "Package": "readspss",
-      "Version": "0.17.1",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteUsername": "JanMarvin",
-      "RemoteRepo": "readspss",
-      "RemoteRef": "main",
-      "RemoteSha": "3ba9cc27aba964df7eadbcb51419d0cf307b2396",
-      "Requirements": [
-        "BH",
-        "Rcpp"
-      ],
-      "Hash": "d0b818966e147739df9218e3d78adf71"
-    },
     "readxl": {
       "Package": "readxl",
       "Version": "1.4.3",

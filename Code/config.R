@@ -11,5 +11,4 @@ library(DBI)
 library(odbc)
 library(foreign)
 library(janitor)
-library(readspss)
 
