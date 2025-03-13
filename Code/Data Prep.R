@@ -31,5 +31,3 @@ source(paste0(here(), "/Code/config.R"))
 
 # Read SQL table
 # your_data <- dbGetQuery(con, 'select *  FROM [schema].[table_name];')
-
-

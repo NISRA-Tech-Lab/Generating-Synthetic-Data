@@ -4,16 +4,13 @@ source(paste0(here(), "/Code/config.R"))
 source(paste0(here(), "/Code/Data Prep.R"))
 
 # Unhash the next two lines if you wish to use sample data 
-# head(iris)
-# your_data <- iris
-
-data <- data.frame(Name = c("John Blank", "John Blank", "John Blank",
-                            "Joan Blank", "Niall Blank"),
-                   DOB = c("01/01/1960", "01/01/1960", "02/01/1960", 
-                           "01/01/1960", "07/06/1991"),
-                   Age = c(42, 42, 44, 54, 12),
-                   Sex = c("Male", "Male", "Male", 
-                           "Female", "Male"))
+# data <- data.frame(Name = c("John Blank", "John Blank", "John Blank",
+#                             "Joan Blank", "Niall Blank"),
+#                    DOB = c("01/01/1960", "01/01/1960", "02/01/1960", 
+#                            "01/01/1960", "07/06/1991"),
+#                    Age = c(42, 42, 44, 54, 12),
+#                    Sex = c("Male", "Male", "Male", 
+#                            "Female", "Male"))
 your_data <- unique(data)
 
 # Anonymising Unique Identifiers 
