@@ -16,7 +16,7 @@ source(paste0(here(), "/Code/config.R"))
 
 ## Read in SPSS (.sav) files
 # password <- "enter password"
-# your_data <- readspss::read.spss("enter file name here",
+# your_data <- read.spss("enter file name here",
 #                                 pass = password,
 #                                 use.missings = FALSE
 # )

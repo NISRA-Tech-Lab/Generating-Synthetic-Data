@@ -14,20 +14,29 @@ for (i in seq_along(repos)) {
     repo <- paste0("file:////pr-clus-vfpdfp/DOF_NISRA_R_Packages/",repos[i])
   }
   
-  if(i == 1) {
-    repo_list[[paste0("CRAN")]] <- repo
-  } else {
-    repo_list[[paste0("CRAN",i)]] <- repo
-  }
+  repo_list[[paste0("TLCRAN",i)]] <- repo
 }
 
-options(repos = unlist(repo_list))
-options("repos")
+names(repo_list)[length(repo_list)] <- "CRAN"
+
+# set renv.config.repos.override option
 options(renv.config.repos.override = unlist(repo_list))
-options("renv.config.repos.override")
+# set repos option
+options(repos = unlist(repo_list))
+
+# conditional activation of renv
+source("renv/activate.R")
+
+# tell renv to prefer binary installs over source
+options(renv.config.install.prefer.binary = TRUE)
+
+# reset repos option - cleared by activate
+options(repos = unlist(repo_list))
 
 # clear working directory
 rm(list=ls())
 
-# conditional activation of renv
-source("renv/activate.R")
+message(cat("\nWhen setting up renv within this project, you may see error lines printed to console similar to:",
+            "\n\nrenv was unable to query available packages from the following repositories:",
+            "\n- # file:////pr-clus-vfpdfp/DOF_NISRA_R_Packages/production/src/contrib --------",
+            "\n\nThese do not affect the setup of the project and can be ignored"))
